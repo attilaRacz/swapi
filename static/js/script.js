@@ -1,5 +1,7 @@
-function createTable() {
-    pageCounter = 1;
+var pageCounter = 1;
+
+function createTable(pageCounter) {
+    $('#tableContainer').html("");
     $.ajax({ 
         type: 'GET', 
         url: 'https://swapi.co/api/planets?page=' + pageCounter, 
@@ -80,8 +82,21 @@ function emptyModal() {
     document.getElementById('id01').style.display='none';
 }
 
+
+$( "#previous" ).click(function() {
+  pageCounter -= 1;
+  createTable(pageCounter);
+});
+
+
+$( "#next" ).click(function() {
+  pageCounter += 1;
+  createTable(pageCounter);
+});
+
+
 $( document ).ready(function() {
 
-    createTable();
+    createTable(pageCounter);
     
 });
