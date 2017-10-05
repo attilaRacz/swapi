@@ -19,7 +19,7 @@ def login():
     if request.method == 'POST':
         POST_USERNAME = str(request.form['username'])
         POST_PASSWORD = str(request.form['password'])
-        user_data = main.main(POST_USERNAME)
+        user_data = main.login(POST_USERNAME)
         if user_data is None:
             pass
         else:
@@ -30,6 +30,25 @@ def login():
                 return redirect(url_for('home'))
             else:
                 flash('wrong password!')
+    return render_template('login.html')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        POST_USERNAME = str(request.form['username'])
+        POST_PASSWORD = str(request.form['password'])
+        main.register(POST_USERNAME, POST_PASSWORD)
+        # if user_data is None:
+        #     pass
+        # else:
+        #     valid_account = POST_USERNAME == user_data['user_name'] and POST_PASSWORD == user_data['password']  # ha ismeretlen felhasználót írok be, elszáll
+        #     if valid_account:
+        #         session['logged_in'] = True
+        #         session['username'] = request.form['username']
+        #         return redirect(url_for('home'))
+        #     else:
+        #         flash('wrong password!')
     return render_template('login.html')
 
 
