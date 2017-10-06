@@ -7,7 +7,7 @@ function createTable(pageCounter) {
             <th>Diameter</th>
             <th>Climate</th>
             <th>Terrain</th>
-            <th>Surface Water Percentage</th>
+            <th>Surface Water</th>
             <th>Population</th>
             <th>Residents</th>
         </tr>`);
@@ -30,11 +30,11 @@ function createTable(pageCounter) {
 
                 $('#tableContainer').append($(`
                                     <tr>
-                                        <td>${planet.name}</td>
-                                        <td>${planet.diameter}</td>
+                                        <td><strong>${planet.name}</strong></td>
+                                        <td>${planet.diameter} km</td>
                                         <td>${planet.climate}</td>
                                         <td>${planet.terrain}</td>
-                                        <td>${planet.surface_water}</td>
+                                        <td>${planet.surface_water} %</td>
                                         <td>${planet.population}</td>
                                         <td>${residents}</td>
                                     </tr>`));

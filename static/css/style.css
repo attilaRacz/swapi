@@ -79,3 +79,7 @@ box-shadow: none;
 h1 {
   padding-top: 50px;
 }
+
+th {
+  color: grey;
+}
