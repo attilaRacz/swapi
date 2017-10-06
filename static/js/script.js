@@ -1,7 +1,16 @@
 var pageCounter = 1;
 
 function createTable(pageCounter) {
-    $('#tableContainer').html("");
+    $('#tableContainer').html(`
+        <tr>
+            <th>Name</th>
+            <th>Diameter</th>
+            <th>Climate</th>
+            <th>Terrain</th>
+            <th>Surface Water Percentage</th>
+            <th>Population</th>
+            <th>Residents</th>
+        </tr>`);
     $.ajax({ 
         type: 'GET', 
         url: 'https://swapi.co/api/planets?page=' + pageCounter, 
@@ -14,10 +23,11 @@ function createTable(pageCounter) {
                     residents = 'No known residents';
                 } else {
                     residents = `<button data-buttonid="${planet.url}"
-                                class="residentButton">
+                                class="residentButton btn">
                                 ${planet.residents.length} resident(s)
                                 </button>`;
                 }
+
                 $('#tableContainer').append($(`
                                     <tr>
                                         <td>${planet.name}</td>
@@ -45,6 +55,17 @@ function eventListenerToButtons() {
 
 
 function createModal(event) {
+    $('#residentsModal').html(`
+        <tr>
+            <th>Name</th>
+            <th>Height</th>
+            <th>Mass</th>
+            <th>Hair color</th>
+            <th>Skin color</th>
+            <th>Eye color</th>
+            <th>Birth year</th>
+            <th>Gender</th>
+        </tr>`)
     let clickedButton = this;
     var planetUrl = clickedButton.dataset['buttonid'];
     for (let i = 1; i <= 10; i++) {
@@ -96,7 +117,7 @@ $( "#next" ).click(function() {
 
 
 $( document ).ready(function() {
-
+    debugger;
     createTable(pageCounter);
     
 });
