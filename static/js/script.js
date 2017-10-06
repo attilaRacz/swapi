@@ -117,7 +117,7 @@ $( "#next" ).click(function() {
 
 
 $( document ).ready(function() {
-    debugger;
+
     createTable(pageCounter);
     
 });

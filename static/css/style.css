@@ -5,9 +5,9 @@ box-sizing: border-box;
 *:focus {
 	outline: none;
 }
-body, html {
+html {
 font-family: Arial;
-background-color: #3498DB;
+background: url(starwarsrepeat.png);
 padding: 50px;
 }
 .login {
@@ -75,4 +75,7 @@ box-shadow: none;
   color: #444;
   display: block;
 	margin-top: 12px;
+}
+h1 {
+  padding-top: 50px;
 }

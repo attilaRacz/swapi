@@ -8,10 +8,18 @@
 		<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 	</head>
 	<body>
+
+
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+      <a class="navbar-brand">swAPI page</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto"></ul>
+		<div>Logged in as {{ session['username'] }} <a href='/logout'>Logout</a></div>
+    </nav>
+
+
 		<h1>Star Wars universe planets</h1>
-		<a href='/logout'>Logout</a>
-		<p>Logged in as {{ session['username'] }}</p>
-		<div>
 			<button id="previous" class="btn" type="button">Previous</button>
 			<button id="next" class="btn" type="button">Next</button>
 		</div>
