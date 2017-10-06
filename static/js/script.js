@@ -1,6 +1,8 @@
 var pageCounter = 1;
 
-function createTable(pageCounter) {
+function createTable(pageCounter, buttonClicked) {
+    document.getElementById(buttonClicked).disabled = true;
+        setTimeout(function(){document.getElementById(buttonClicked).disabled = false;},500);
     $('#tableContainer').html(`
         <tr>
             <th>Name</th>
@@ -105,19 +107,27 @@ function emptyModal() {
 
 
 $( "#previous" ).click(function() {
-  pageCounter -= 1;
-  createTable(pageCounter);
+    document.getElementById("next").disabled = false;
+    if (pageCounter <= 1) {
+        this.disabled = true;
+    } else {
+        pageCounter -= 1;
+        createTable(pageCounter, "previous");
+    }
 });
 
 
 $( "#next" ).click(function() {
-  pageCounter += 1;
-  createTable(pageCounter);
+    document.getElementById("previous").disabled = false;
+    if (pageCounter >= 7) {
+        this.disabled = true;
+    } else {
+        pageCounter += 1;
+        createTable(pageCounter, "next");
+    }
 });
 
 
 $( document ).ready(function() {
-
-    createTable(pageCounter);
-    
+    createTable(pageCounter, "name");
 });
